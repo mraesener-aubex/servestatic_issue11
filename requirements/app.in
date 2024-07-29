@@ -1,7 +1,5 @@
 django
 django-environ
-django-ninja
-django-ninja-jwt
 
 gunicorn
 uvicorn[standard]

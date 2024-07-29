@@ -28,7 +28,7 @@ SECRET_KEY = env.ENVIRON["DJANGO_SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["issue11.lcl.host"]
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition
