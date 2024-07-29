@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "start run_huey",
+            "type": "shell",
+            "isBackground": true,
+            "command": "DJANGO_SETTINGS_MODULE=config.settings ./.venv/bin/python manage.py run_huey",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": [
+                {
+                    "pattern": [
+                        {
+                            "regexp": ".",
+                            "file": 1,
+                            "location": 2,
+                            "message": 3
+                        }
+                    ],
+                    "background": {
+                        "activeOnStart": true,
+                        "beginsPattern": {
+                            "regexp": "^Huey consumer started$"
+                        },
+                        "endsPattern": {
+                            "regexp": ".*"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "label": "stop run_huey",
+            "command": "echo ${input:terminate}",
+            "type": "shell"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "terminate",
+            "type": "command",
+            "command": "workbench.action.tasks.terminate",
+            "args": "terminateAll"
+        }
+    ]
+}

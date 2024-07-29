@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "issue11",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "gunicorn",
+            "args": [
+                "--bind",
+                "0.0.0.0:${env:HTTPS_PORT}",
+                "--config",
+                "${workspaceFolder}/gunicorn.conf.py",
+                "config.asgi:application",
+                "-w",
+                "1",
+                "-k",
+                "config.workers.UvicornWorker",
+            ],
+            "envFile": "${workspaceFolder}/.env",
+            "django": true,
+        },
+        // {
+        //     "name": "Python: Debug Tests",
+        //     "type": "debugpy",
+        //     "request": "launch",
+        //     "program": "${file}",
+        //     "purpose": [
+        //         "debug-test"
+        //     ],
+        //     "console": "integratedTerminal",
+        //     "justMyCode": false,
+        //     "env": {
+        //         "PYTEST_ADDOPTS": "--no-cov",
+        //         "DJANGO_SETTINGS_MODULE": "config.settings"
+        //     }
+        // }
+    ]
+}
